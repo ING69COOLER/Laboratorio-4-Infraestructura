@@ -122,7 +122,7 @@ public class EchoTCPServer {
         }
     }
 
-    // ─── Funciones de conversión 
+    // ─── Funciones de conversión
     /**
      * Convierte un número decimal a binario con la longitud especificada en bits.
      * Ejemplo: decimalABinario(10, 16) → "0000000000001010"

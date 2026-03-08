@@ -8,18 +8,18 @@ import java.util.Scanner;
  * Cliente TCP para conversión entre sistemas numéricos.
  * 
  * Protocolo de comunicación (separado por ";"):
- *   Operación 1: DEC_BIN;<número_decimal>;<longitud_bits>
- *   Operación 2: BIN_DEC;<número_binario>
- *   Operación 3: DEC_HEX;<número_decimal>;<ancho_digitos>
- *   Operación 4: HEX_DEC;<número_hexadecimal>
- *   Operación 5: BIN_HEX;<número_binario>;<ancho_digitos>
- *   Operación 6: HEX_BIN;<número_hexadecimal>
+ * Operación 1: DEC_BIN;<número_decimal>;<longitud_bits>
+ * Operación 2: BIN_DEC;<número_binario>
+ * Operación 3: DEC_HEX;<número_decimal>;<ancho_digitos>
+ * Operación 4: HEX_DEC;<número_hexadecimal>
+ * Operación 5: BIN_HEX;<número_binario>;<ancho_digitos>
+ * Operación 6: HEX_BIN;<número_hexadecimal>
  */
 public class EchoTCPClient {
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
-    public static final String SERVER = "10.112.94.80";
+    public static final String SERVER = "192.168.20.27";
     public static final int PORT = 3400;
 
     private PrintWriter toNetwork;
@@ -98,14 +98,14 @@ public class EchoTCPClient {
         String numero = SCANNER.nextLine().trim();
         System.out.print("  Longitud en bits: ");
         String longitud = SCANNER.nextLine().trim();
-        return "DEC_BIN;" + numero + ";" + longitud;
+        return "1;" + numero + ";" + longitud;
     }
 
     /** Operación 2: Binario → Decimal */
     private String construirBinDec() {
         System.out.print("  Número binario: ");
         String numero = SCANNER.nextLine().trim();
-        return "BIN_DEC;" + numero;
+        return "2;" + numero;
     }
 
     /** Operación 3: Decimal → Hexadecimal con ancho en dígitos */
@@ -114,14 +114,14 @@ public class EchoTCPClient {
         String numero = SCANNER.nextLine().trim();
         System.out.print("  Ancho en dígitos hexadecimales: ");
         String ancho = SCANNER.nextLine().trim();
-        return "DEC_HEX;" + numero + ";" + ancho;
+        return "3;" + numero + ";" + ancho;
     }
 
     /** Operación 4: Hexadecimal → Decimal */
     private String construirHexDec() {
         System.out.print("  Número hexadecimal: ");
         String numero = SCANNER.nextLine().trim();
-        return "HEX_DEC;" + numero;
+        return "4;" + numero;
     }
 
     /** Operación 5: Binario → Hexadecimal con ancho en dígitos */
@@ -130,14 +130,14 @@ public class EchoTCPClient {
         String numero = SCANNER.nextLine().trim();
         System.out.print("  Ancho en dígitos hexadecimales: ");
         String ancho = SCANNER.nextLine().trim();
-        return "BIN_HEX;" + numero + ";" + ancho;
+        return "5;" + numero + ";" + ancho;
     }
 
     /** Operación 6: Hexadecimal → Binario */
     private String construirHexBin() {
         System.out.print("  Número hexadecimal: ");
         String numero = SCANNER.nextLine().trim();
-        return "HEX_BIN;" + numero;
+        return "6;" + numero;
     }
 
     // ─── Utilidades ─────────────────────────────────────────────────────────────
